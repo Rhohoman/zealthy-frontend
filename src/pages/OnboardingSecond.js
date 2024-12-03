@@ -55,7 +55,6 @@ export const OnboardingSecond = () => {
         body: JSON.stringify(fields),
         credentials: "include",
       });
-      console.log("Response body:", JSON.parse(res.body));
       console.log("Response status:", res.status);
       if (!res.ok) {
         const errorMessage = await res.text();
