@@ -47,6 +47,7 @@ export const OnboardingSecond = () => {
   };
 
   async function sendPostRequest(fields) {
+    console.log("fields ", fields);
     try {
       const res = await fetch(baseUrl + "second-form", {
         method: "POST",
