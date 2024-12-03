@@ -26,6 +26,9 @@ export const Home = () => {
     sendPostRequest(inputEmail, inputPassword);
     dispatch(setEmail(inputEmail));
     dispatch(setPassword(inputPassword));
+    req.session.userId = result.insertId;
+    req.session.email = email;
+
     navigate("/onboarding/2");
   };
 
