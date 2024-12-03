@@ -49,10 +49,6 @@ export const Home = () => {
       if (!res.ok) {
         throw new Error(`Error: ${res.statusText}`);
       }
-      const responseData = await res.json();
-      const userId = responseData.userId;
-      localStorage.setItem("userId", userId);
-      console.log("User ID stored in LocalStorage:", userId);
     } catch (error) {
       console.error("Request failed...", error);
     }
