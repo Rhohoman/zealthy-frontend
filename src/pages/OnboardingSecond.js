@@ -8,7 +8,6 @@ export const OnboardingSecond = () => {
 
   const [inputAboutMe, setInputAboutMe] = useState("");
   const [inputBirthday, setInputBirthday] = useState("");
-  // const [inputAddress, setInputAddress] = useState("");
   const [streetAddress, setStreetAddress] = useState("");
   const [cityAddress, setCityAddress] = useState("");
   const [stateAddress, setStateAddress] = useState("");
@@ -58,7 +57,6 @@ export const OnboardingSecond = () => {
         body: JSON.stringify(fields),
         credentials: "include",
       });
-      console.log("Response... ", res.body);
       console.log("Response status:", res.status);
       if (!res.ok) {
         const errorMessage = await res.text();
