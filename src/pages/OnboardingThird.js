@@ -24,6 +24,11 @@ export const OnboardingThird = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const fields = {};
+    const userId = localStorage.getItem("userId");
+    if (!userId) {
+      console.error("User ID not found. Please start over.");
+      return;
+    }
 
     if (page3Components.includes("aboutMe")) {
       dispatch(setAboutMe(aboutMe));

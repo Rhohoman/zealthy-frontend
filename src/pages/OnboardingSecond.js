@@ -21,6 +21,13 @@ export const OnboardingSecond = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const fields = {};
+    const userId = localStorage.getItem("userId");
+    if (!userId) {
+      console.error("User ID not found. Please start over.");
+      return;
+    }
+
+    fields.userId = userId;
 
     if (page2Components.includes("aboutMe")) {
       fields.aboutMe = inputAboutMe;
