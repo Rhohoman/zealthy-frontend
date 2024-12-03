@@ -41,13 +41,14 @@ export const OnboardingSecond = () => {
       dispatch(setBirthday(inputBirthday));
     }
 
+    console.log("what is fields here...", fields);
+
     sendPostRequest(fields);
 
     navigate("/onboarding/3");
   };
 
   async function sendPostRequest(fields) {
-    console.log("fields ", fields);
     try {
       const res = await fetch(baseUrl + "second-form", {
         method: "POST",
@@ -57,7 +58,7 @@ export const OnboardingSecond = () => {
         body: JSON.stringify(fields),
         credentials: "include",
       });
-      console.log("Response... ", res);
+      console.log("Response... ", res.body);
       console.log("Response status:", res.status);
       if (!res.ok) {
         const errorMessage = await res.text();
