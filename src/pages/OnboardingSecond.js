@@ -40,8 +40,6 @@ export const OnboardingSecond = () => {
       dispatch(setBirthday(inputBirthday));
     }
 
-    console.log("what is fields here...", fields);
-
     sendPostRequest(fields);
 
     navigate("/onboarding/3");
@@ -57,7 +55,6 @@ export const OnboardingSecond = () => {
         body: JSON.stringify(fields),
         credentials: "include",
       });
-      console.log("Response:", res);
       console.log("Response body:", JSON.parse(res.body));
       console.log("Response status:", res.status);
       if (!res.ok) {
