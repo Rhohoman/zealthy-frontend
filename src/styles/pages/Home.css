@@ -1,5 +1,4 @@
 .home-container {
-  padding-top: 50px;
   height: 100vh;
   background-color: #f4f4ec;
   padding: 15px;
@@ -17,20 +16,4 @@
 .form-group {
   width: 100%;
   min-width: 300px;
-}
-
-#input-container label {
-  display: block;
-}
-
-#input-form-group {
-  width: 50%;
-}
-
-button {
-  align-self: center;
-}
-
-h3 {
-  padding-left: 10px;
 }

@@ -68,11 +68,103 @@ export const OnboardingSecond = () => {
   }
 
   return (
+    // <div className="second-step d-flex justify-content-center align-items-center vh-100">
+    //   <form
+    //     id="third-step"
+    //     onSubmit={handleSubmit}
+    //     className="onboarding-form w-75 p-4 border rounded bg-light"
+    //     style={{ maxHeight: "80vh", overflowY: "auto" }}
+    //   >
+    //     {page2Components.includes("aboutMe") && (
+    //       <div className="form-group mb-4">
+    //         <h3 className="mb-3">About Me</h3>
+    //         <textarea
+    //           placeholder="Enter Here"
+    //           value={inputAboutMe}
+    //           onChange={(e) => setInputAboutMe(e.target.value)}
+    //           type="text"
+    //           id="about-me-input"
+    //           className="form-control w-100"
+    //           rows="4"
+    //           style={{ resize: "vertical", minHeight: "100px" }} // Ensures vertical resizing and sets a min-height
+    //         />
+    //       </div>
+    //     )}
+    //     {page2Components.includes("address") && (
+    //       <div className="address-form mb-4">
+    //         <h3 className="mb-3">Address Information</h3>
+    //         <div className="mb-3">
+    //           <label htmlFor="streetAddress" className="form-label"></label>
+    //           <input
+    //             placeholder="Enter Street Address Here"
+    //             type="text"
+    //             id="street-address"
+    //             value={streetAddress}
+    //             onChange={(e) => setStreetAddress(e.target.value)}
+    //             className="form-control"
+    //           />
+    //         </div>
+    //         <div className="mb-3">
+    //           <label htmlFor="cityAddress" className="form-label"></label>
+    //           <input
+    //             placeholder="Enter City Here"
+    //             type="text"
+    //             id="city"
+    //             value={cityAddress}
+    //             onChange={(e) => setCityAddress(e.target.value)}
+    //             className="form-control"
+    //           />
+    //         </div>
+    //         <div className="mb-3">
+    //           <label htmlFor="stateAddress" className="form-label"></label>
+    //           <input
+    //             placeholder="Enter State Here"
+    //             type="text"
+    //             id="state"
+    //             value={stateAddress}
+    //             onChange={(e) => setStateAddress(e.target.value)}
+    //             className="form-control"
+    //           />
+    //         </div>
+    //         <div className="mb-3">
+    //           <label htmlFor="zipCodeAddress" className="form-label"></label>
+    //           <input
+    //             placeholder="Enter Zip Code Here"
+    //             type="text"
+    //             id="zip-code"
+    //             value={zipCodeAddress}
+    //             onChange={(e) => setZipCodeAddress(e.target.value)}
+    //             className="form-control"
+    //           />
+    //         </div>
+    //       </div>
+    //     )}
+    //     {page2Components.includes("birthday") && (
+    //       <div className="mb-4">
+    //         <h3 htmlFor="birthday-input" className="mb-2">
+    //           Birthday
+    //         </h3>
+    //         <input
+    //           value={inputBirthday}
+    //           onChange={(e) => setInputBirthday(e.target.value)}
+    //           type="date"
+    //           id="birthday-input"
+    //           className="form-control"
+    //         />
+    //       </div>
+    //     )}
+    //     <div className="text-center">
+    //       <button type="submit" className="btn btn-primary w-100">
+    //         Next Step
+    //       </button>
+    //     </div>
+    //   </form>
+    // </div>
     <div className="second-step d-flex justify-content-center align-items-center vh-100">
       <form
         id="third-step"
         onSubmit={handleSubmit}
-        className="onboarding-form w-75 p-4 border rounded bg-light"
+        className="onboarding-form w-75 p-4 border rounded bg-light d-flex flex-column"
         style={{ maxHeight: "80vh", overflowY: "auto" }}
       >
         {page2Components.includes("aboutMe") && (
@@ -153,7 +245,8 @@ export const OnboardingSecond = () => {
             />
           </div>
         )}
-        <div className="text-center">
+
+        <div className="mt-auto text-center">
           <button type="submit" className="btn btn-primary w-100">
             Next Step
           </button>

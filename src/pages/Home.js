@@ -24,9 +24,6 @@ export const Home = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     sendPostRequest(inputEmail, inputPassword);
-
-    let tempUserID = 0;
-
     dispatch(setEmail(inputEmail));
     dispatch(setPassword(inputPassword));
     navigate("/onboarding/2");
@@ -55,60 +52,45 @@ export const Home = () => {
   }
 
   return (
-    <div className="home-container">
-      {/* <form onSubmit={handleSubmit} className="form-group">
-        <div id="input-container">
-          <div className="email-container">
-            <h3 htmlFor="email-input">Email</h3>
+    <div className="home-container d-flex justify-content-center align-items-center vh-100">
+      <form
+        onSubmit={handleSubmit}
+        className="form-group onboarding-form w-75 p-4 border rounded bg-light d-flex flex-column"
+        style={{ maxHeight: "80vh", overflowY: "auto" }}
+      >
+        <div id="input-container" className="mb-4">
+          <div id="input-form-group" className="form-group mb-4">
+            <label htmlFor="email-input" className="form-label mb-2">
+              Email address
+            </label>
             <input
               id="email-input"
               name="email-input"
               type="email"
-              className="col-sm-2"
-              onChange={handleEmailChange}
-              placeholder="Enter here"
-            />
-          </div>
-          <div className="password-container">
-            <h3 htmlFor="">Password </h3>
-            <input
-              id="password-input"
-              type="password"
-              className="col-sm-2"
-              onChange={handlePasswordChange}
-              placeholder="Enter here"
-            />
-          </div>
-        </div>
-        <button type="submit button" className="btn btn-primary">
-          Next Step
-        </button>
-      </form> */}
-      <form onSubmit={handleSubmit} className="form-group">
-        <div id="input-container">
-          <div id="input-form-group" className="form-group col-4">
-            <label htmlFor="email-input">Email address</label>
-            <input
-              id="email-input"
-              name="email-input"
-              type="email"
-              className="form-control col-2"
+              required
+              className="form-control"
               onChange={handleEmailChange}
               placeholder="Enter email"
             />
           </div>
-          <div id="input-form-group" className="form-group col-4">
-            <label htmlFor="password-input">Password</label>
+          <div id="input-form-group" className="form-group mb-4">
+            <label htmlFor="password-input" className="form-label mb-2">
+              Password
+            </label>
             <input
               id="password-input"
               type="password"
+              required
               className="form-control"
               onChange={handlePasswordChange}
               placeholder="Enter password"
             />
           </div>
-          <button type="submit" className="btn btn-primary">
-            Next Step
+        </div>
+
+        <div className="mt-auto text-center">
+          <button type="submit" className="btn btn-primary w-100">
+            Submit
           </button>
         </div>
       </form>
