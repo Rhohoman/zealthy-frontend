@@ -58,9 +58,9 @@ export const Home = () => {
         className="form-group onboarding-form w-75 p-4 border rounded bg-light d-flex flex-column"
         style={{ maxHeight: "80vh", overflowY: "auto" }}
       >
-        <div id="input-container" className="mb-4">
+        <div id="input-container" className="mb-4 ">
           <div id="input-form-group" className="form-group mb-4">
-            <label htmlFor="email-input" className="form-label mb-2">
+            <label htmlFor="email-input" className="form-label mb-2 h3">
               Email address
             </label>
             <input
@@ -74,7 +74,7 @@ export const Home = () => {
             />
           </div>
           <div id="input-form-group" className="form-group mb-4">
-            <label htmlFor="password-input" className="form-label mb-2">
+            <label htmlFor="password-input" className="form-label mb-2 h3">
               Password
             </label>
             <input
