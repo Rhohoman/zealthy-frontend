@@ -86,7 +86,12 @@ export const OnboardingSecond = () => {
               id="about-me-input"
               className="form-control w-100"
               rows="4"
-              style={{ resize: "vertical", minHeight: "100px" }} // Ensures vertical resizing and sets a min-height
+              style={{
+                resize: "vertical",
+                maxHeight: "180px",
+                minHeight: "100px",
+                overflowY: "auto",
+              }}
             />
           </div>
         )}

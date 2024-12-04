@@ -154,7 +154,12 @@ export const OnboardingThird = () => {
               onChange={(e) => setAboutMeInput(e.target.value)}
               className="form-control w-100"
               rows="4"
-              style={{ resize: "vertical", minHeight: "100px" }}
+              style={{
+                resize: "vertical",
+                maxHeight: "180px",
+                minHeight: "100px",
+                overflowY: "auto",
+              }}
             />
           </div>
         )}

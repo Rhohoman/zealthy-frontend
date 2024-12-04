@@ -18,7 +18,7 @@ export const Header = () => {
         >
           Github
         </a>
-        <a href="#" className="header-link">
+        <a href="https://www.linkedin.com/in/rhoho/" className="header-link">
           Contact
         </a>
       </span>
