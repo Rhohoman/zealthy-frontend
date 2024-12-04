@@ -74,78 +74,97 @@ export const OnboardingThird = () => {
   }
 
   return (
-    <form id="third-step" onSubmit={handleSubmit} className="third-form">
-      {page3Components.includes("address") && (
-        <div className="address-form">
-          <h3>Address Information</h3>
-          <label htmlFor="streetAddress">Street Address</label>
-          <input
-            placeholder="Enter Here"
-            type="text"
-            id="street-address"
-            value={streetAddress}
-            onChange={(e) => setStreetAddress(e.target.value)}
-          />
-          <label htmlFor="cityAddress">City</label>
-          <input
-            placeholder="Enter Here"
-            type="text"
-            id="city"
-            value={cityAddress}
-            onChange={(e) => setCityAddress(e.target.value)}
-          />
-          <label htmlFor="stateAddress">State</label>
-          <input
-            placeholder="Enter Here"
-            type="text"
-            id="state"
-            value={stateAddress}
-            onChange={(e) => setStateAddress(e.target.value)}
-          />
-          <label htmlFor="zipCodeAddress">Zip Code</label>
-          <input
-            placeholder="Enter Here"
-            type="text"
-            id="zip-code"
-            value={zipCodeAddress}
-            onChange={(e) => setZipCodeAddress(e.target.value)}
-          />
-        </div>
-      )}
-
-      {page3Components.includes("birthday") && (
-        <div className="birthday-form">
-          <h3>Birthday</h3>
-          <label htmlFor="birthday-input">Enter Your Birthday</label>
-          <input
-            type="date"
-            id="birthday-input"
-            value={birthday}
-            onChange={(e) => setLocalBirthday(e.target.value)}
-          />
-        </div>
-      )}
-
-      {page3Components.includes("aboutMe") && (
-        <div className="aboutme-form">
-          <h3>About Me</h3>
-          <label htmlFor="about-me-input">Tell Us About Yourself</label>
-          <textarea
-            placeholder="Enter Here"
-            id="about-me-input"
-            value={aboutMe}
-            onChange={(e) => setAboutMeInput(e.target.value)}
-          />
-        </div>
-      )}
-
-      <button
-        id="submit-button"
-        type="submit button"
-        className="btn btn-primary"
+    <div className="second-step d-flex justify-content-center align-items-center vh-100">
+      <form
+        id="third-step"
+        onSubmit={handleSubmit}
+        className="onboarding-form w-75 p-4 border rounded bg-light"
+        style={{ maxHeight: "80vh", overflowY: "auto" }}
       >
-        Complete
-      </button>
-    </form>
+        {page3Components.includes("address") && (
+          <div className="form-group mb-4">
+            <h3 className="mb-3">Address Information</h3>
+            <div className="mb-3">
+              <label htmlFor="streetAddress" className="form-label"></label>
+              <input
+                placeholder="Enter Street Address Here"
+                type="text"
+                id="street-address"
+                value={streetAddress}
+                onChange={(e) => setStreetAddress(e.target.value)}
+                className="form-control"
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="cityAddress" className="form-label"></label>
+              <input
+                placeholder="Enter City Here"
+                type="text"
+                id="city"
+                value={cityAddress}
+                onChange={(e) => setCityAddress(e.target.value)}
+                className="form-control"
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="stateAddress" className="form-label"></label>
+              <input
+                placeholder="Enter State Here"
+                type="text"
+                id="state"
+                value={stateAddress}
+                onChange={(e) => setStateAddress(e.target.value)}
+                className="form-control"
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="zipCodeAddress" className="form-label"></label>
+              <input
+                placeholder="Enter Zip Code Here"
+                type="text"
+                id="zip-code"
+                value={zipCodeAddress}
+                onChange={(e) => setZipCodeAddress(e.target.value)}
+                className="form-control"
+              />
+            </div>
+          </div>
+        )}
+
+        {page3Components.includes("birthday") && (
+          <div className="form-group mb-4">
+            <h3 className="mb-2">Birthday</h3>
+            <input
+              value={birthday}
+              onChange={(e) => setLocalBirthday(e.target.value)}
+              type="date"
+              id="birthday-input"
+              className="form-control"
+            />
+          </div>
+        )}
+
+        {page3Components.includes("aboutMe") && (
+          <div className="form-group mb-4">
+            <h3 className="mb-2">About Me</h3>
+            <textarea
+              placeholder="Enter Here"
+              id="about-me-input"
+              value={aboutMe}
+              onChange={(e) => setAboutMeInput(e.target.value)}
+              className="form-control w-100"
+              rows="4"
+              style={{ resize: "vertical", minHeight: "100px" }}
+            />
+          </div>
+        )}
+
+        <div className="text-center">
+          <button type="submit" className="btn btn-primary w-100">
+            Complete
+          </button>
+        </div>
+      </form>
+    </div>
   );
 };

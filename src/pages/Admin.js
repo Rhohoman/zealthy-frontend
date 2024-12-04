@@ -62,7 +62,7 @@ export const Admin = () => {
   };
 
   return (
-    <div className="admin-container">
+    <div className="admin-container ">
       <h3>Admin Configuration</h3>
       <div className="checkbox-container">
         <h4>Onboarding Page 2</h4>
@@ -98,7 +98,7 @@ export const Admin = () => {
       </div>
       <button
         onClick={handleSaveConfiguration}
-        type="submit button"
+        type="button"
         className="btn btn-primary"
       >
         Save Configuration

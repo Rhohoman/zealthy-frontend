@@ -56,7 +56,7 @@ export const Home = () => {
 
   return (
     <div className="home-container">
-      <form onSubmit={handleSubmit} className="form-group">
+      {/* <form onSubmit={handleSubmit} className="form-group">
         <div id="input-container">
           <div className="email-container">
             <h3 htmlFor="email-input">Email</h3>
@@ -83,6 +83,34 @@ export const Home = () => {
         <button type="submit button" className="btn btn-primary">
           Next Step
         </button>
+      </form> */}
+      <form onSubmit={handleSubmit} className="form-group">
+        <div id="input-container">
+          <div id="input-form-group" className="form-group col-4">
+            <label htmlFor="email-input">Email address</label>
+            <input
+              id="email-input"
+              name="email-input"
+              type="email"
+              className="form-control col-2"
+              onChange={handleEmailChange}
+              placeholder="Enter email"
+            />
+          </div>
+          <div id="input-form-group" className="form-group col-4">
+            <label htmlFor="password-input">Password</label>
+            <input
+              id="password-input"
+              type="password"
+              className="form-control"
+              onChange={handlePasswordChange}
+              placeholder="Enter password"
+            />
+          </div>
+          <button type="submit" className="btn btn-primary">
+            Next Step
+          </button>
+        </div>
       </form>
     </div>
   );

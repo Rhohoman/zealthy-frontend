@@ -8,7 +8,12 @@ export const Header = () => {
       <a id="logo" href="/">
         Zealthy
       </a>
-      <img src={image} alt="Wellness-img" />
+      <span className="header-links">
+        <a href="/admin">Admins</a>
+        <a href="#">Github</a>
+        <a href="#">Contact</a>
+      </span>
+      {/* <img src={image} alt="Wellness-img" /> */}
     </div>
   );
 };

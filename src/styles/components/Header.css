@@ -1,17 +1,32 @@
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: #ace4c4;
-  height: 185px;
+  height: 155px;
 }
 
 .header #logo {
   font-size: 50px;
   font-weight: 800;
   font-family: sans-serif;
-  margin: 50px 45px;
   text-decoration: none;
   color: black;
+  margin-left: 25px;
+}
+
+.header-links {
+  margin-right: 25px;
+}
+
+.header-links a {
+  margin-left: 15px;
+  text-decoration: none;
+  color: black;
+}
+
+.header a:hover {
+  color: gray;
 }
 
 .header img {
