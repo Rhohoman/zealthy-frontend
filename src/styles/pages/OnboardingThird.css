@@ -1,3 +1,14 @@
+.onboarding-third-container {
+  height: 100vh;
+  background-color: #f4f4ec;
+  padding: 15px;
+}
+
+.onboarding-form {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 #third-step {
   padding-top: 50px;
   height: 100vh;

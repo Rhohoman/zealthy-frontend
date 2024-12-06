@@ -1,24 +1,31 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/components/Header.css";
-import image from "../styles/assets/wellness.png";
 
 export const Header = () => {
   return (
     <div className="header">
-      <a id="logo" href="/" className="logo">
+      <Link id="logo" to="/" className="logo">
         Zealthy
-      </a>
+      </Link>
       <span className="header-links">
-        <a href="/admin" className="header-link">
+        <Link to="/admin" className="header-link">
           Admins
-        </a>
+        </Link>
         <a
           href="https://github.com/Rhohoman/zealthyproject"
           className="header-link"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           Github
         </a>
-        <a href="https://www.linkedin.com/in/rhoho/" className="header-link">
+        <a
+          href="https://www.linkedin.com/in/rhoho/"
+          className="header-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Contact
         </a>
       </span>

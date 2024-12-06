@@ -31,13 +31,17 @@
 }
 
 .header-links a:hover {
-  color: gray;
-  transform: scale(1.1);
+  color: #333;
+  transform: translateY(-2px);
 }
 
 .header img {
   width: 180px;
   height: 100%;
+}
+
+.header-link {
+  font-weight: 600;
 }
 
 @media (max-width: 768px) {

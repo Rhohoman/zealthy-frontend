@@ -26,19 +26,32 @@ h4 {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 30px; /* Adding padding to the entire container */
+  padding: 30px;
   min-height: 100vh;
-  background-color: #f8f9fa; /* Light background color */
+  background-color: #f4f4ec;
+}
+
+.admin-form {
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.checkbox-section {
+  margin: 2rem 0;
 }
 
 .checkbox-container {
   width: 100%;
-  max-width: 600px; /* Limits the width to a reasonable size */
+  max-width: 600px;
   margin-bottom: 20px;
   padding: 20px;
-  border: 1px solid #ddd; /* Adds border around the checkboxes section */
+  border: 1px solid #ddd;
   border-radius: 8px;
-  background-color: #fff; /* White background inside the container */
+  background-color: #fff;
 }
 
 .checkboxes {
@@ -52,14 +65,14 @@ label {
   display: flex;
   align-items: center;
   gap: 8px;
-  justify-content: flex-start;
+  cursor: pointer;
 }
 
 button {
   margin-top: 20px;
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #007bff; /* Button color */
+  background-color: #007bff;
   color: white;
   border: none;
   border-radius: 4px;
@@ -67,5 +80,5 @@ button {
 }
 
 button:hover {
-  background-color: #0056b3; /* Button hover effect */
+  background-color: #0056b3;
 }

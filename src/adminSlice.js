@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  page2Components: ["aboutMe"], // Components to be displayed on Page 2
-  page3Components: ["address", "birthday"], // Components to be displayed on Page 3
+  page2Components: ["aboutMe"], 
+  page3Components: ["address", "birthday"],
 };
 
 const adminSlice = createSlice({

@@ -10,10 +10,9 @@ export const Admin = () => {
   const page3Components = useSelector((state) => state.admin.page3Components);
   const componentArr = ["address", "birthday", "aboutMe"];
 
-  const [localPage2Components, setLocalPage2Components] =
-    useState(page2Components);
-  const [localPage3Components, setLocalPage3Components] =
-    useState(page3Components);
+  const [localPage2Components, setLocalPage2Components] = useState(page2Components);
+  const [localPage3Components, setLocalPage3Components] = useState(page3Components);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     setLocalPage2Components(page2Components);
@@ -21,86 +20,125 @@ export const Admin = () => {
   }, [page2Components, page3Components]);
 
   const handleCheckboxChange = (page, component) => {
+    setError("");
+    
     if (page === "page2") {
       const newSelection = localPage2Components.includes(component)
-        ? localPage2Components.filter((comp) => comp !== component) // Remove it
-        : [...localPage2Components, component]; // Add it
+        ? localPage2Components.filter((comp) => comp !== component)
+        : [...localPage2Components, component];
+        
+      if (localPage3Components.includes(component)) {
+        setLocalPage3Components(localPage3Components.filter(comp => comp !== component));
+      }
+      
       setLocalPage2Components(newSelection);
-      dispatch(setPage2Components(newSelection));
     } else if (page === "page3") {
       const newSelection = localPage3Components.includes(component)
-        ? localPage3Components.filter((comp) => comp !== component) // Remove it
-        : [...localPage3Components, component]; // Add it
+        ? localPage3Components.filter((comp) => comp !== component)
+        : [...localPage3Components, component];
+        
+
+      if (localPage2Components.includes(component)) {
+        setLocalPage2Components(localPage2Components.filter(comp => comp !== component));
+      }
+      
       setLocalPage3Components(newSelection);
-      dispatch(setPage3Components(newSelection));
     }
+  };
+
+  const validateConfiguration = () => {
+    const totalComponents = [...localPage2Components, ...localPage3Components];
+    
+  
+    if (localPage2Components.length === 0 || localPage3Components.length === 0) {
+      const message = "Both pages must have at least one component selected";
+      setError(message);
+      alert(message);
+      return false;
+    }
+
+ 
+    const uniqueComponents = new Set(totalComponents);
+    if (uniqueComponents.size !== totalComponents.length) {
+      const message = "A component cannot be in both pages";
+      setError(message);
+      alert(message);
+      return false;
+    }
+
+    const allComponentsUsed = componentArr.every(comp => 
+      localPage2Components.includes(comp) || localPage3Components.includes(comp)
+    );
+    if (!allComponentsUsed) {
+      const message = "All components must be assigned to either page 2 or page 3";
+      setError(message);
+      alert(message);
+      return false;
+    }
+
+    return true;
   };
 
   const handleSaveConfiguration = () => {
+    console.log("Page 2 Components:", localPage2Components);
+    console.log("Page 3 Components:", localPage3Components);
+
+    if (!validateConfiguration()) {
+      return;
+    }
+
     dispatch(setPage2Components(localPage2Components));
     dispatch(setPage3Components(localPage3Components));
-
-    if (localPage2Components.length === 0) {
-      alert("Onboarding pages cannot be empty!");
-      return;
-    }
-
-    if (localPage3Components.length === 0) {
-      alert("Onboarding pages cannot be empty!");
-      return;
-    }
-    alert("Configuration saved!");
-  };
-
-  const isCheckboxDisabled = (page, component) => {
-    if (page === "page2") {
-      return localPage3Components.includes(component);
-    } else if (page === "page3") {
-      return localPage2Components.includes(component);
-    }
-    return false;
+    setError("");
+    alert("Configuration saved successfully!");
   };
 
   return (
-    <div className="admin-container ">
+    <div className="admin-container">
       <h3>Admin Configuration</h3>
-      <div className="checkbox-container">
-        <h4>Onboarding Page 2</h4>
-        <div className="checkboxes">
-          {componentArr.map((component) => (
-            <label key={`page2-${component}`}>
-              <input
-                id={`page-2-${component}`}
-                type="checkbox"
-                checked={localPage2Components.includes(component)}
-                onChange={() => handleCheckboxChange("page2", component)}
-                disabled={isCheckboxDisabled("page2", component)}
-              />
-              {component.charAt(0).toUpperCase() + component.slice(1)}
-            </label>
-          ))}
+      {error && (
+        <div className="alert alert-danger" role="alert">
+          {error}
         </div>
-        <h4>Onboarding Page 3</h4>
-        <div className="checkboxes">
-          {componentArr.map((component) => (
-            <label key={`page3-${component}`}>
-              <input
-                id={`page-3-${component}`}
-                type="checkbox"
-                checked={localPage3Components.includes(component)}
-                onChange={() => handleCheckboxChange("page3", component)}
-                disabled={isCheckboxDisabled("page3", component)}
-              />
-              {component.charAt(0).toUpperCase() + component.slice(1)}
-            </label>
-          ))}
+      )}
+      <div className="admin-form">
+        <div className="checkbox-section">
+          <h4>Onboarding Page 2</h4>
+          <div className="checkboxes">
+            {componentArr.map((component) => (
+              <label key={`page2-${component}`}>
+                <input
+                  id={`page-2-${component}`}
+                  type="checkbox"
+                  checked={localPage2Components.includes(component)}
+                  onChange={() => handleCheckboxChange("page2", component)}
+                  disabled={localPage3Components.includes(component)}
+                />
+                {component.charAt(0).toUpperCase() + component.slice(1)}
+              </label>
+            ))}
+          </div>
+        </div>
+
+        <div className="checkbox-section">
+          <h4>Onboarding Page 3</h4>
+          <div className="checkboxes">
+            {componentArr.map((component) => (
+              <label key={`page3-${component}`}>
+                <input
+                  id={`page-3-${component}`}
+                  type="checkbox"
+                  checked={localPage3Components.includes(component)}
+                  onChange={() => handleCheckboxChange("page3", component)}
+                  disabled={localPage2Components.includes(component)}
+                />
+                {component.charAt(0).toUpperCase() + component.slice(1)}
+              </label>
+            ))}
+          </div>
         </div>
       </div>
-      <button
-        onClick={handleSaveConfiguration}
-        type="button"
-        className="btn btn-primary"
-      >
+      <button onClick={handleSaveConfiguration} type="button" className="btn btn-primary mt-4">
         Save Configuration
       </button>
     </div>
